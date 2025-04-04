@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+    
+        <link rel="stylesheet" href="css/style.css">
+
+
+       <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script> -->
+
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
+    <style>
+        
+        .show-dropdown {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+
+<header class="header--responsive" style="height: 56px !important;">
+    <div class="container">
+        <nav>
+            <div class="collapse navbar-collapse cover-menu">
+                
+                    <div class="nav navbar-form navbar-right dropdown nav-dropdown-menu">
+                        
+                        <!-- Profile Dropdown -->
+                        <div id="g-profile-btn" class="dropdown-toggle g-arrow-up g-profile">
+                            <div class="g-tooltip-content">My Sign Ups and Settings</div>
+                            <div class="ppic ppic-34 black-shadow-active">
+                                <img alt="Profile Icon" src="resource/mypic.jpg">
+                            </div>
+                        </div>
+
+                        <!-- Dropdown Menu -->
+                        <ul id="g-dropdown-menu" class="dropdown-menu horizontal right">
+                            <li><a aria-label="Sign Ups" href="/myaccount">Sign Ups</a></li>
+                            <li><a aria-label="Settings" href="/index.cfm?go=m.editprofile&amp;memberid=177560">Settings</a></li>
+                            <li><a aria-label="Billing" href="/index.cfm?go=o.mypurchases">Billing</a></li>
+                            <li class="nav-trial" id="mar3388-nav-desk-start-trial"><a aria-label="Trial" href="/index.cfm?go=o.ProGeniusProducts&amp;showtrial=1">Free Premium Trial</a></li>
+                            <li><a aria-label="Log Out" class="logoutLink" href="">Log Out</a></li>
+                        </ul>
+                        
+                    </div>
+               
+            </div>
+        </nav>
+    </div>
+</header>
+
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        const profileBtn = document.getElementById("g-profile-btn");
+        const dropdownMenu = document.getElementById("g-dropdown-menu");
+
+        profileBtn.addEventListener("click", function (event) {
+            event.stopPropagation(); // Prevent event bubbling
+            if (!profileBtn.classList.contains("disabled")) {
+                dropdownMenu.classList.toggle("show-dropdown");
+                profileBtn.classList.toggle("show-dropdown"); // Toggle arrow visibility
+            }
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (event) {
+            if (!profileBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.remove("show-dropdown");
+                profileBtn.classList.remove("show-dropdown"); // Hide arrow when menu closes
+            }
+        });
+    });
+
+</script>
+
+</body>
+</html>
